@@ -3,7 +3,7 @@
 =====================
 */
 body.home {
-    background-image: url(../images/home_bg2.jpg);
+    background-image: url(../images/fm_bg.png);
     background-size: cover;
     margin: 0px;
     background-repeat: no-repeat;
@@ -31,21 +31,25 @@ body.home .everest-nav-container.everest-sticky{
     border-top: 1px solid rgba(255,255,255, 0.08);    
  }
 body.home .section-gap-half {
-    padding: 2vh 0;
+    padding: 0;
 }
-div#logo_big {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+body.home .section-gap-half .container {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
-div#player_big {
-    margin-top: 7vh;
-    margin-bottom: 7vh;
-    overflow: hidden;
+body.home .copyright-container, .credit-container {
+    color: #e8ebf1;
 }
-div#logo_slogan {
-    margin-top: 4vh;
-    margin-bottom: 4vh;
+body.home .copyright-container a,
+body.home .credit-container a {
+    color: #fdba17;
 }
+#logo_big #branding,
+#logo_slogan #shout_and_player {
+    padding: 5vh 0;
+} 
+
+
 
 
 .jp-audio-stream {
@@ -95,51 +99,53 @@ height: 65px;
     position: relative;
     margin: auto;
     max-width: 300px;
-    margin-bottom: 44px;
 }  
-    
+
+#player_big {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+}    
     
     
 .radio #butterfly-left {
+    background: url(../images/btrfly_left.png);
+    -webkit-transform-origin : -100% 50%;
+    -moz-transform-origin : -100% 50%;
+    -o-transform-origin : -100% 50%;
+    -ms-transform-origin : -100% 50%;
+    transform-origin : 100% 50%;
+
+    left: 50%;
+}
+
+.radio #butterfly-right {
     background: url(../images/btrfly_right.png);
+    -webkit-transform-origin : -100% 50%;
+    -moz-transform-origin : -100% 50%;
+    -o-transform-origin : -100% 50%;
+    -ms-transform-origin : -100% 50%;
+    transform-origin : -100% 50%;
+
+    right: 50%;
+}
+
+.radio #butterfly-right,
+.radio #butterfly-left{
     background-repeat:no-repeat;
     width:190px;
     height:190px;
     z-index:5;
     position:absolute;
-    background-size: contain;
-    margin-right: 80%;
-    -webkit-transform-origin : -100% 50%;
-    -moz-transform-origin : -100% 50%;
-    -o-transform-origin : -100% 50%;
-    -ms-transform-origin : -100% 50%;
-    transform-origin : 100% 50%; 
-    
-    -webkit-animation: leaves 6s  infinite;
-    animation: leaves 6s   infinite ;
-
-}
-
-
-.radio #butterfly-right {
-    background: url(../images/btrfly_right.png);
-    background-repeat:no-repeat;
-    width:190px;
-    height:190px;
-    z-index:999999999999999;
-    position:absolute;
-    background-size: contain;
-    margin-left: 60%;
-    -webkit-transform-origin : -100% 50%;
-    -moz-transform-origin : -100% 50%;
-    -o-transform-origin : -100% 50%;
-    -ms-transform-origin : -100% 50%;
-    transform-origin : -100% 50%; 
-    
+    background-size: contain; 
+    top: 30%;
+    transform: translate(-30%,-30%);
     -webkit-animation: leaves 6s  infinite;
     animation: leaves 6s  infinite ;
 
 }
+
 
 @-webkit-keyframes leaves {
     0% {

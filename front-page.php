@@ -17,7 +17,7 @@ get_header();
 	
 	<div class="container" id="logo_big">
 		<div class="row justify-content-center align-items-center">
-			<div class="text-logo" id="branding">
+			<div class="text-logo img-responsive" id="branding">
 				<img class="colours" src="<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_text' ));?>" alt="<?php bloginfo( 'name' ); ?>" />
 			</div>
 		</div>
@@ -42,20 +42,17 @@ get_header();
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" id="player_big">
-		<div class="row justify-content-center align-items-center">
-			<div class="radio-box" id="radio-box">
-				<div id="butterfly-left"></div>
-				<img src="<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_lg_logo' ));?>" class="img-responsive" alt="" />
-				<div id="butterfly-right"></div>  
-			</div>
-		</div>
+
+	<div class="container-fluid" id="player_big" style="background-image:url(<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_lg_logo' ));?>)">
+		<div id="butterfly-left"></div>
+		<div id="butterfly-right"></div>  
 	</div>
+
   <canvas id="oscilloscope"></canvas>
   <style type="text/css">
     #oscilloscope {
     width: 100%;
-    height:100px;
+    height:13vh;
   }
 
 
@@ -136,7 +133,17 @@ get_header();
 }
 
 
-
+.bg__logo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 
 
@@ -158,7 +165,7 @@ get_header();
 
 let start_button = document.getElementById('play'),
 volume = document.getElementById('volume-controls'),
-radio_box = document.getElementById('radio-box'),
+radio_box = document.getElementById('player_big'),
 audioContext,
 masterGain;
 
@@ -253,7 +260,7 @@ function drawOscilloscope() {
   const scopeContext = scopeCanvas.getContext('2d');
 
   scopeCanvas.width = waveform.length;
-  scopeCanvas.height = 100;
+  // scopeCanvas.height = 100;
 
   scopeContext.clearRect(0, 0, scopeCanvas.width, scopeCanvas.height);
   scopeContext.beginPath();

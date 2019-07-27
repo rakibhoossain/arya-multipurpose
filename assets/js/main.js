@@ -27,7 +27,38 @@
     return false;
   });
 
+  // ------------------------------------------------------------------------------ //
+  // FM Logo 
+  // ------------------------------------------------------------------------------ //
+  $(document).ready(function () {
 
+  
+
+
+    var header_area   = $('#header-area').height() + 1, 
+      logoHeight   = $('#logo_big').height(), 
+      sloganHeight  = $('#logo_slogan').height(),
+      oscilloscopeHeight   = $('#oscilloscope').height(),
+      footerrHeight = $('footer#footer').height() + 1,
+
+      equilizerHeight = window_height - (header_area+logoHeight+ sloganHeight+oscilloscopeHeight+footerrHeight+10);
+
+      console.log('window_height:  '+ window_height);
+      console.log('header_area:  '+ header_area);
+      console.log('logoHeight:  '+ logoHeight);
+      console.log('sloganHeight:  '+ sloganHeight);
+      console.log('oscilloscopeHeight:  '+ oscilloscopeHeight);
+      console.log('footerrHeight:  '+ footerrHeight);
+      console.log('//');
+      console.log('equilizerHeight:  '+ equilizerHeight);
+
+
+
+      $("#player_big").css({
+        height: equilizerHeight + 'px'
+      });
+
+  });
   // ------------------------------------------------------------------------------ //
   // Preloader 
   // ------------------------------------------------------------------------------ //
