@@ -1,0 +1,196 @@
+/*=====================
+  Style for player
+=====================
+*/
+body.home {
+    background-image: url(../images/home_bg2.jpg);
+    background-size: cover;
+    margin: 0px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    height: 100vh;
+    max-height: 100vh;
+    background-attachment: fixed;
+}
+body.home .site {
+    position: relative;
+    z-index: 2;
+    background: transparent; 
+    margin: 0 auto;
+}
+body.home .footer-section,
+body.home .header-area,
+body.home .everest-nav-container.everest-sticky{
+    background-color: transparent;
+}
+
+ body.home #header-area{
+    border-bottom: 1px solid rgba(255,255,255, 0.08);
+}
+ body.home .footer-section{
+    border-top: 1px solid rgba(255,255,255, 0.08);    
+ }
+body.home .section-gap-half {
+    padding: 2vh 0;
+}
+div#logo_big {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+div#player_big {
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+    overflow: hidden;
+}
+div#logo_slogan {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+
+.jp-audio-stream {
+    max-width: 103px;
+    margin: auto;
+}
+
+.jp-controls {
+    height: 96px;
+    background-image: url(../images/player-bg.png);
+    padding: 19px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+.player-bg {
+height: 65px;
+    width: 65px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    text-align: center;
+      position: relative;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+#play .fa {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.9rem;
+    color: #b1b156;
+    cursor: pointer;
+}
+
+.jp-volume-controls .fa{
+    font-size: 1.4rem;
+    color: #b1b156;
+    cursor: pointer;
+}
+
+
+/*Radio Box Layout*/
+.radio-box {
+    position: relative;
+    margin: auto;
+    max-width: 300px;
+    margin-bottom: 44px;
+}  
+    
+    
+    
+.radio #butterfly-left {
+    background: url(../images/btrfly_right.png);
+    background-repeat:no-repeat;
+    width:190px;
+    height:190px;
+    z-index:5;
+    position:absolute;
+    background-size: contain;
+    margin-right: 80%;
+    -webkit-transform-origin : -100% 50%;
+    -moz-transform-origin : -100% 50%;
+    -o-transform-origin : -100% 50%;
+    -ms-transform-origin : -100% 50%;
+    transform-origin : 100% 50%; 
+    
+    -webkit-animation: leaves 6s  infinite;
+    animation: leaves 6s   infinite ;
+
+}
+
+
+.radio #butterfly-right {
+    background: url(../images/btrfly_right.png);
+    background-repeat:no-repeat;
+    width:190px;
+    height:190px;
+    z-index:999999999999999;
+    position:absolute;
+    background-size: contain;
+    margin-left: 60%;
+    -webkit-transform-origin : -100% 50%;
+    -moz-transform-origin : -100% 50%;
+    -o-transform-origin : -100% 50%;
+    -ms-transform-origin : -100% 50%;
+    transform-origin : -100% 50%; 
+    
+    -webkit-animation: leaves 6s  infinite;
+    animation: leaves 6s  infinite ;
+
+}
+
+@-webkit-keyframes leaves {
+    0% {
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+    }
+   
+    50%{
+         opacity: 1;
+    }
+    
+    100%{
+       -webkit-transform: scale(2);
+         opacity: 0;
+    }
+}
+    
+       
+@media only screen and (max-width: 1230px)  {
+@-webkit-keyframes leaves {
+    0% {
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+    }
+   
+    50%{
+         opacity: 1;
+    }
+    
+    100%{
+       -webkit-transform: scale(1.5);
+         opacity: 0;
+    }
+}
+    
+}
+    
+    
+@media only screen and (max-width: 767px)  {
+@-webkit-keyframes leaves {
+    0% {
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+    }
+   
+    50%{
+         opacity: 1;
+    }
+    
+    100%{
+       -webkit-transform: scale(1.5);
+         opacity: 0;
+    }
+}
