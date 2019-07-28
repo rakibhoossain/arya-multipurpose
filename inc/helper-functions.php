@@ -113,11 +113,6 @@ if ( ! function_exists( 'arya_multipurpose_recommended_plugins' ) ) :
 
         $plugins = array(
             array(
-                'name'     => esc_html__( 'Everest Toolkit', 'arya-multipurpose' ),
-                'slug'     => 'everest-toolkit',
-                'required' => false,
-            ),
-            array(
                 'name'     => esc_html__( 'Woocommerce', 'arya-multipurpose' ),
                 'slug'     => 'woocommerce',
                 'required' => false,

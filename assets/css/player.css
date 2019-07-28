@@ -44,11 +44,48 @@ body.home .copyright-container a,
 body.home .credit-container a {
     color: #fdba17;
 }
+
+/*body.home #header-area.header-area {
+    position: fixed!important;
+    top: 0;
+    left: 0;
+    width: 100%;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*body.home #footer{
+    position: fixed!important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}*/
+
 #logo_big #branding,
 #logo_slogan #shout_and_player {
-    padding: 5vh 0;
+    padding: 4vh 0;
 } 
-
+#logo_slogan #shout_and_player {
+    padding-bottom: 6vh;
+}
+@media only screen and (max-width: 1366px){
+    #logo_big #branding,
+    #logo_slogan #shout_and_player {
+    padding: 0;
+    } 
+    #logo_slogan #shout_and_player {
+        padding-bottom: 0;
+    }
+}
 
 
 
@@ -63,6 +100,7 @@ body.home .credit-container a {
     padding: 19px;
     box-sizing: border-box;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .player-bg {
@@ -106,6 +144,7 @@ height: 65px;
     background-position: center;
     background-size: contain;
     position: relative;
+    overflow: hidden;
 }    
     
     

@@ -132,12 +132,12 @@ function arya_multipurpose_scripts() {
 
 	wp_enqueue_style( 'themify-icons', get_template_directory_uri() . '/assets/css/themify-icons.css' );
 
-	
-
 	wp_enqueue_style( 'arya-multipurpose-main', get_template_directory_uri() . '/assets/css/main.css' );
 
 	// player
-	wp_enqueue_style( 'fmlive-player', get_template_directory_uri() . '/assets/css/player.css' );
+	if (is_home() && is_front_page()) {
+		wp_enqueue_style( 'fmlive-player', get_template_directory_uri() . '/assets/css/player.css' );
+	}
 
 	wp_enqueue_style( 'arya-multipurpose-responsive', get_template_directory_uri() . '/assets/css/responsive.css' );
 
@@ -157,8 +157,6 @@ function arya_multipurpose_scripts() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.js', array('jquery'), ARYA_MULTIPURPOSE_VERSION, true );
 
 	wp_enqueue_script( 'arya-multipurpose-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), ARYA_MULTIPURPOSE_VERSION, true );
-
-	// wp_enqueue_script( 'fmlive-jplayer', get_template_directory_uri() . '/assets/js/jquery.jplayer.js', array('jquery'), '1.0.0', true);
 
 	wp_enqueue_script( 'arya-multipurpose-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), ARYA_MULTIPURPOSE_VERSION, true );
 

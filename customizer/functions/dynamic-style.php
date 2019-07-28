@@ -16,7 +16,7 @@ if( ! function_exists( 'arya_multipurpose_dynamic_style' ) ) {
 				.header-area,
 				.everest-nav-container.everest-sticky {
 					position: relative !important;
-					background-color: #2196F3;
+					background-color: #878b62;
 				}
 				<?php
 			}

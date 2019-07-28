@@ -293,7 +293,7 @@ td, th {
   text-align: center;
   text-decoration: none;
   display: none;
-  background: #2196F3;
+  background: #878b62;
   border-radius: 3px;
   -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
@@ -963,7 +963,7 @@ td, th {
 }
 
 .breakpoint-on .everest-navbar .everest-menu {
-  background-color: #2196F3;
+  background-color: #878b62;
   position: fixed;
   top: 0;
   left: -310px;
@@ -1378,6 +1378,50 @@ td, th {
   -moz-box-shadow: 0 7px 20px -10px #000;
   box-shadow: 0 7px 20px -10px #000;*/
 }
+
+
+
+/* =================================== */
+/*  Profile Card 
+/* =================================== */
+.profile-card-5{
+    margin-top:20px;
+}
+.profile-card-5 .btn{
+    border-radius:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    padding:7px 20px;
+}
+.profile-card-5 .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    
+}
+.profile-card-5 .card-img-block img{
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,0,0,0.63);
+}
+.profile-card-5 h5{
+    color:#000000;
+    font-weight:600;
+}
+.profile-card-5 p{
+    font-size:14px;
+    font-weight:300;
+}
+.profile-card-5 .btn-primary{
+    background-color:#000000;
+    border-color:#000000;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
 
 /* =================================== */
 /*  Features Styles 

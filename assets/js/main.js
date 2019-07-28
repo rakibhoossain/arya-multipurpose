@@ -38,21 +38,31 @@
     var header_area   = $('#header-area').height() + 1, 
       logoHeight   = $('#logo_big').height(), 
       sloganHeight  = $('#logo_slogan').height(),
-      oscilloscopeHeight   = $('#oscilloscope').height(),
-      footerrHeight = $('footer#footer').height() + 1,
+      footerrHeight = $('footer#footer').height() + 2,
 
-      equilizerHeight = window_height - (header_area+logoHeight+ sloganHeight+oscilloscopeHeight+footerrHeight+10);
+      fm_area = window_height - (header_area+footerrHeight),
+      equilizerHeight = window_height - (header_area+logoHeight+ sloganHeight+footerrHeight+10);
 
       console.log('window_height:  '+ window_height);
       console.log('header_area:  '+ header_area);
+      console.log('footerrHeight:  '+ footerrHeight);
+            console.log('//');
+      console.log('fm_area:  '+ fm_area);
+
+            console.log('//');            console.log('//');
+
       console.log('logoHeight:  '+ logoHeight);
       console.log('sloganHeight:  '+ sloganHeight);
-      console.log('oscilloscopeHeight:  '+ oscilloscopeHeight);
-      console.log('footerrHeight:  '+ footerrHeight);
+
       console.log('//');
       console.log('equilizerHeight:  '+ equilizerHeight);
 
+$('#fm-area').css({
+  // 'padding-top': header_area + 'px',
+  height: fm_area + 'px'
 
+
+});
 
       $("#player_big").css({
         height: equilizerHeight + 'px'

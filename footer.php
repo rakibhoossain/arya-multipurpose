@@ -14,7 +14,7 @@
     <footer class="footer-section section-gap-half" id="footer">
         <div class="container">
             <?php
-            if( is_active_sidebar( 'arya-multipurpose-footer-1' ) || is_active_sidebar( 'arya-multipurpose-footer-2' ) || is_active_sidebar( 'arya-multipurpose-footer-3' ) || is_active_sidebar( 'arya-multipurpose-footer-4' ) ) :
+            if( (!is_home() && !is_front_page()) && (is_active_sidebar( 'arya-multipurpose-footer-1' ) || is_active_sidebar( 'arya-multipurpose-footer-2' ) || is_active_sidebar( 'arya-multipurpose-footer-3' ) || is_active_sidebar( 'arya-multipurpose-footer-4' ) )) :
                 ?>
                 <div class="row">
                     <?php

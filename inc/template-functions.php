@@ -180,7 +180,7 @@ if( ! function_exists( 'arya_multipurpose_copyright_text' ) ) {
             ?>
             <div class="col-md-6">
                 <div class="copyright-container text-left">
-                    <p><?php echo esc_html( $copyright_text ); ?></p>
+                    <p><?php echo wp_specialchars_decode( $copyright_text ); ?></p>
                 </div>
             </div>
             <?php

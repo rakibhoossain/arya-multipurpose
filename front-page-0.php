@@ -15,22 +15,22 @@
 get_header();
 ?>
 	<div id="fm-area">
+  	<div class="container" id="logo_big">
+  		<div class="row justify-content-center align-items-center">
+  			<div class="text-logo" id="branding">
+  				<img class="colours img-responsive" src="<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_text' ));?>" alt="<?php bloginfo( 'name' ); ?>" />
+  			</div>
+  		</div>
+  	</div>
 
-    <div id="logo_big">
-      <div class="text-logo text-center" id="branding">
-        <img class="colours img-responsive" src="<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_text' ));?>" alt="<?php bloginfo( 'name' ); ?>" />
-      </div>        
-    </div>
-  
-
-  	<div id="logo_slogan">
+  	<div class="container" id="logo_slogan">
   		<div id="shout_and_player">
   			<div class="radio-player">
   				<div id="jquery_jplayer_1" class="jp-jplayer"></div>
   				<div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
   					<div class="jp-type-single">
   						<div class="jp-gui jp-interface">
-  							<div class="jp-controls" id="play_now">
+  							<div class="jp-controls">
   								<div class="player-bg" id="play"><i class="fa fa-play"></i></div>
   							</div>
   							<div class="jp-volume-controls text-center" id="volume-controls">
@@ -43,15 +43,20 @@ get_header();
   		</div>
   	</div>
 
-  	<div id="player_big" style="background-image:url(<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_lg_logo' ));?>)">
+  	<div class="container-fluid" id="player_big" style="background-image:url(<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_lg_logo' ));?>)">
   		<div id="butterfly-left"></div>
   		<div id="butterfly-right"></div>  
   	</div>
-    <audio id="audio__play" src="<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_link' )); ?>" preload="auto" />
   </div>
 
-  
-<style type="text/css">
+  <!-- <canvas id="oscilloscope"></canvas> -->
+  <style type="text/css">
+    #oscilloscope {
+    width: 100%;
+    height:13vh;
+  }
+
+
 /*copy*/
 .player-bg.player-animate::before,
 .player-bg.player-animate::after {
@@ -82,19 +87,6 @@ get_header();
   -o-animation: audio2 2.2s infinite ease-in-out;
   -webkit-animation: audio2 2.2s infinite ease-in-out;
   animation: audio2 2.2s infinite ease-in-out;
-}
-
-.player-bg.player-animate.player-mute::before {
-  -moz-animation: audio3 1.5s infinite ease-in-out;
-  -o-animation: audio3 1.5s infinite ease-in-out;
-  -webkit-animation: audio3 1.5s infinite ease-in-out;
-  animation: audio3 1.5s infinite ease-in-out;
-}
-.player-bg.player-animate.player-mute::after {
-  -moz-animation: audio4 2.2s infinite ease-in-out;
-  -o-animation: audio4 2.2s infinite ease-in-out;
-  -webkit-animation: audio4 2.2s infinite ease-in-out;
-  animation: audio4 2.2s infinite ease-in-out;
 }
 
 .jp-play{
@@ -141,36 +133,6 @@ get_header();
   }
 }
 
-@keyframes audio3 {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0.25em rgba(255,160,122, 0.15);
-  }
-  25% {
-    box-shadow: 0 0 0 0.4em rgba(255,160,122, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 0 0.15em rgba(255,160,122, 0.05);
-  }
-  75% {
-    box-shadow: 0 0 0 0.55em rgba(255,160,122, 0.45);
-  }
-}
-@keyframes audio4 {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0.25em rgba(220,20,60, 0.15);
-  }
-  25% {
-    box-shadow: 0 0 0 0.4em rgba(220,20,60, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 0 0.15em rgba(220,20,60, 0.05);
-  }
-  75% {
-    box-shadow: 0 0 0 0.55em rgba(220,20,60, 0.45);
-  }
-}
 
 .bg__logo {
     background-position: center;
@@ -184,27 +146,42 @@ get_header();
     transform: translateX(-50%);
 }
 
+
+
+
+
+
   </style>
 
 	<script type="text/javascript">
   // <![CDATA[
+  // @ref
+  // https://www.w3.org/TR/webaudio
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
+  // https://noisehack.com/build-music-visualizer-web-audio-api
+
   // ========================================================
   // Global Config
   // ========================================================
 
-  let play_now    =   document.getElementById('play_now'),
-    start_button  =   document.getElementById('play'),
-    song          =   document.getElementById('audio__play'),
-    volume        =   document.getElementById('volume-controls'),
-    radio_box     =   document.getElementById('player_big'),
-    mute          =   false;
+  let start_button = document.getElementById('play'),
+  volume = document.getElementById('volume-controls'),
+  radio_box = document.getElementById('player_big');
   // ========================================================
   // Audio Setup
   // ========================================================
 
   function audioSetup() {
+    let source = "<?php echo esc_url(arya_multipurpose_get_option( 'arya_multipurpose_fm_link' )); ?>";
 
-    play_now.addEventListener('click', function () {
+
+  // Audio source
+  let song = new Audio(source),
+  mute = false;
+
+    song.crossOrigin = 'anonymous';
+
+    start_button.addEventListener('click', function () {
       if (!song.paused) {
         song.pause();
         start_button.classList.remove('player-animate');
@@ -212,25 +189,19 @@ get_header();
         start_button.innerHTML = '<i class="fa fa-play"></i>';
       } else {
         song.play();
+        start_button.classList.add('player-animate');
+        radio_box.classList.add('radio');
+        start_button.innerHTML = '<i class="fa fa-pause"></i>';
       }
 
     });
-
-    song.onplaying = function(){
-      start_button.classList.add('player-animate');
-      radio_box.classList.add('radio');
-      start_button.innerHTML = '<i class="fa fa-pause"></i>';
-    };
-
 
 
     volume.addEventListener('click', function () {
       if (mute) {
         volume.innerHTML = '<i class="fa fa-volume-up"></i>';
-        start_button.classList.remove('player-mute');
       } else {
         volume.innerHTML = '<i class="fa fa-volume-off"></i>'; 
-        start_button.classList.add('player-mute');
       }
       song.muted = !mute;
       mute = !mute;
@@ -244,6 +215,7 @@ get_header();
       radio_box.classList.remove('radio');
       start_button.innerHTML = '<i class="fa fa-play"></i>';
     });
+
 
   }
 

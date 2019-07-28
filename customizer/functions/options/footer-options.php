@@ -13,20 +13,39 @@ $wp_customize->add_section( 'arya_multipurpose_site_footer',
 // Field - Copyright Text
 $wp_customize->add_setting( 'arya_multipurpose_footer_copyright_text', 
 	array(
-		'sanitize_callback'		=> 'sanitize_text_field',
+		'sanitize_callback'		=> 'wp_kses_post',
 		'default'				=> $defaults['arya_multipurpose_footer_copyright_text'],
 		'capability'        => 'edit_theme_options',
 	)
 );
 
-$wp_customize->add_control( 
-	'arya_multipurpose_footer_copyright_text',
-	array(
-		'label'				=> esc_html__( 'Copyright Text', 'arya-multipurpose' ),
-		'type'				=> 'text',
-		'section' 			=> 'arya_multipurpose_site_footer',
-	) 
-);
+// $wp_customize->add_control( 
+// 	'arya_multipurpose_footer_copyright_text',
+// 	array(
+// 		'label'				=> esc_html__( 'Copyright Text', 'arya-multipurpose' ),
+// 		'type'				=> 'text',
+// 		'section' 			=> 'arya_multipurpose_site_footer',
+// 	) 
+// );
+
+
+$wp_customize->add_control( new Customizer_Text_Editor_Control(
+    $wp_customize,
+    'arya_multipurpose_footer_copyright_text',
+    array(
+        'label'           => esc_html__( 'Copyright Text', 'arya-multipurpose' ),
+        'section'         => 'arya_multipurpose_site_footer',
+        'settings'        => 'arya_multipurpose_footer_copyright_text',
+        'type'            => 'editor-news',
+    )
+));
+
+
+
+
+
+
+
 
 // Field - Show Scroll Top Button
 $wp_customize->add_setting( 'arya_multipurpose_footer_display_to_top_btn', 

@@ -27,6 +27,11 @@ function arya_multipurpose_customize_register( $wp_customize ) {
 	require get_template_directory() . '/customizer/controls/class-customizer-toggle-control.php';
 
 	/**
+	 * Load custom customizer control for toggle control
+	 */
+	require get_template_directory() . '/customizer/controls/class-customizer-text-editor-control.php';
+
+	/**
 	 * Load customizer functions for sanitization of input values of contol fields
 	 */
 	require get_template_directory() . '/customizer/functions/sanitize-callback.php';
