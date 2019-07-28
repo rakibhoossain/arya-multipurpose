@@ -11,9 +11,18 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-
-			<?php arya_multipurpose_inner_banner(); ?>
-
+			
+		<!-- Start page-top-banner section -->
+	    <section class="page-top-banner section-gap-full relative" data-stellar-background-ratio="0.5">
+	        <div class="overlay overlay-bg"></div>
+	        <div class="container">
+	            <div class="row section-gap-half">
+	                <div class="col-lg-12 text-center">
+	                	<h1 class="page-title">Our RJ</h1>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
 			<!-- Start blog-lists section -->
 		    <section class="blog-lists-section section-gap-full">
 		        <div class="container">
